@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/types/color.ts", "../src/types/props.ts"],
+  "sourcesContent": ["export const IRStyleColorList = [\"primary\", \"secondary\", \"tertiary\", \"transparent\"] as const;\n\nexport const IRIntentList = [\"secondary\", \"tertiary\", \"info\", \"warning\", \"danger\"] as const;\n\nexport declare type IRStyleColor = typeof IRStyleColorList[number];\nexport declare type IRIntent = typeof IRIntentList[number];", "export const HorizontalAlignmentList = [\"left\", \"center\", \"right\"] as const;\nexport const VerticalAlignmentList = [\"top\", \"middle\", \"bottom\"] as const;\n\nexport declare type HorizontalAlignment = typeof HorizontalAlignmentList[number];\nexport declare type VerticalAlignment = typeof VerticalAlignmentList[number];"],
+  "mappings": "iaAAO,IAAMA,EAAmB,CAAC,UAAW,YAAa,WAAY,aAAa,EAErEC,EAAe,CAAC,YAAa,WAAY,OAAQ,UAAW,QAAQ,ECF1E,IAAMC,EAA0B,CAAC,OAAQ,SAAU,OAAO,EACpDC,EAAwB,CAAC,MAAO,SAAU,QAAQ",
+  "names": ["IRStyleColorList", "IRIntentList", "HorizontalAlignmentList", "VerticalAlignmentList"]
+}

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder Main</title>
+    <link rel="stylesheet" href="/ir-style/css/ir-css-ui.css">
+</head>
+<body>
+    <div class="flex height--block width--block">
+        <nav class="main-navbar">
+            <ul class="main-navbar__list" id="app_nav"></ul>
+        </nav>
+        <header class="main-header innorules builderevent-listener is-collapsed">
+            <div class="main-header__wrapper">
+                <h1 class="innorules-logo"><span class="a11y-hidden">InnoRules</span></h1>
+                <div class="main-header__actions">
+                    <div class="select main-header__action">
+                        <select id="header_select">
+                            <option>개발계</option>
+                            <option>검증계</option>
+                            <option>운영계</option>
+                        </select>
+                        <button type="button" class="main-header__action button" >
+                            <i class="button__icon-prefix ir-icon ir-icon--star-fill"></i>
+                            <span class="button__text" >즐겨찾기</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="main-header__folder">
+                    <div id="folder_controls" class="main-header__folder-controls">
+                        <div id="folder_controls_left" class="main-header__folder-controls-left">
+                            <div id="menu_group" class="menu-container">
+                                <button type="button" class="menu__trigger-button" id="btn_biz_more" title="폴더 관리 메뉴">
+                                    <i class="ir-icon ir-icon--ellipsis"></i>
+                                </button>
+                                <div class="menu menu--top-right">
+                                    <ul id="menu_list" class="menu__list"></ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-header__folder-controls-right">
+                            <button type="button" class="main-header__folder-controls-button" title="새로 고침">
+                                <i class="ir-icon ir-icon--refresh"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="folder_tree" class="main-header__folder-tree"></div>
+                </div>
+            </div>
+        </header>        
+        <main id="main_content" class="main-content innorules builderevent-listener">
+            <div class="main-content__head">
+                <div class="main-content__head-item">
+                    <button type="button" class="main-content__head-aside-button toggle-menu is-active">
+                        <i class="ir-icon ir-icon--show-sidebar"></i>
+                    </button>
+                </div>
+                <div class="main-content__head-item-divider"></div>
+                <div class="main-content__head-item">
+                    <select id="main_name_select" class="select width--xl"></select>
+                    <div class="input width--3xl">                        
+                        <input type="search" class="input__native" name="search_text" placeholder="검색어를 입력하십시오.">
+                        <button type="button" class="input__suffix"><i class="ir-icon ir-icon--search"></i></button>
+                    </div>
+                    <button type="button" class="button button--sm" >
+                        <span class="button__text">상세</span>
+                        <i class="button__icon-suffix ir-icon ir-icon--triangle-small-down"></i>
+                    </button>
+                </div>
+                <div class="main-content__head-item main-content__head-item--right">
+                    <button type="button" class="button button--icon" style="display:none">
+                        <i class="ir-icon ir-icon--color-picker"></i>
+                    </button>
+                    <button type="button" class="button button--icon" >
+                        <i class="ir-icon ir-icon--user-fill"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="main-content__body innorules builderevent-listener">
+                <div class="titlebar">
+                    <h2 id="titlebar_title" class="titlebar__text text--ellipsis" style="white-space:pre !important" title="즐겨찾기">즐겨찾기</h2>
+                    <div class="titlebar__actions">
+                        <button id="rule_add_button" type="button" class="button button--primary" style="display: none;">
+                            <i class="button__icon-prefix ir-icon ir-icon--add"></i>
+                            룰 추가
+                        </button>                                                
+                        <div class="titlebar__actions-divider"></div>
+                        <div class="toggle">
+                            <label class="toggle__wrapper">
+                                <input id="toggle_input" type="checkbox" class="toggle__input">
+                                <div class="toggle__state">
+                                    <span class="toggle__inactive"><i class="toggle__icon ir-icon ir-icon--viewmode-list"></i></span>
+                                    <span class="toggle__active"><i class="toggle__icon ir-icon ir-icon--viewmode-card"></i></span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row flex--grow-0 flex--shrink-0">
+                    <div class="button-group__left">
+                        <button type="button" class="button" id="btn_refresh">
+                            <i class="button__icon-prefix ir-icon ir-icon--refresh"></i>
+                            <span>새로 고침</span>
+                        </button>
+                    </div>
+                    <div id="main_button_group_right" class="button-group__right" style="display: none">
+                        <button type="button" class="button">
+                            <i class="button__icon-prefix ir-icon ir-icon--delete"></i>
+                            <span>룰 삭제</span>
+                        </button>
+                        <button type="button" class="button button--sm">
+                            <i class="button__icon-prefix ir-icon ir-icon--apply-circle-fill"></i>
+                            <span>승인</span>
+                        </button>
+                        <button type="button" class="button">
+                            <i class="button__icon-prefix ir-icon ir-icon--cancel-circle-fill"></i>
+                            <span>승인 취소</span>
+                        </button>
+                        <button type="button" class="button">
+                            <span>룰 관리 메뉴</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="table" id="div_table_rulelist" style="display: none;">
+                    <table>
+                        <colgroup>
+                            <col style="width: 36px;">
+                            <col style="width: 40px;">
+                            <col>
+                            <col style="width: 9.1666%;">
+                            <col style="width: 9.8333%;">
+                            <col span="2" style="width: 6.5833%;">
+                            <col span="2" style="width: 8.5833%;">
+                            <col span="2" style="width: 13.8333%;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th scope="row">
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <input type="checkbox" class="checkbox__input">
+                                        </label>
+                                    </div>
+                                </th>
+                                <th scope="row">
+                                    <div class="favorite">
+                                        <label class="favorite__wrapper">
+                                            <input type="checkbox" class="favorite__input">
+                                            <div class="favorite__state">
+                                                <i class="favorite__inactive ir-icon ir-icon--star-outline"></i>
+                                                <i class="favorite__active ir-icon ir-icon--star-fill"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </th>
+                                <th scope="row" class="text--start" id="th_rule_tit_name">룰 이름</th>
+                                <th scope="row" id="th_rule_tit_id">룰 코드</th>
+                                <th scope="row" id="th_rule_tit_alias">룰 별칭</th>
+                                <th scope="row" id="th_rule_tit_approval">승인</th>
+                                <th scope="row" id="th_rule_tit_apply">이관</th>
+                                <th scope="row" id="th_rule_tit_return_type">리턴 형식</th>
+                                <th scope="row" id="th_rule_tit_branch">브랜치 노드</th>
+                                <th scope="row" id="th_rule_tit_lastuser">최종 변경자</th>
+                                <th scope="row" id="th_rule_tit_lastdate">최종 변경일</th>
+                            </tr>
+                        </thead>                        
+                        <tbody>
+                            <tr style="cursor:pointer;" class="tr_li_rule_list">
+                                <td>
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <input type="checkbox" name="rule_check" class="checkbox__input rule_check" >
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="favorite">
+                                        <label class="favorite__wrapper">
+                                            <input id="favorite_#S00000392" data-delete="A" type="checkbox" class="favorite__input a-favorite">
+                                            <div class="favorite__state">
+                                                <i class="favorite__inactive ir-icon ir-icon--star-outline"></i>
+                                                <i class="favorite__active ir-icon ir-icon--star-fill"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="text--start" title="2_테이블룰12">
+                                    <span class="rule-name rule-name-title">
+                                        <button type="button" class="icon-button icon-button--sm" title="버전 조회">
+                                            <i class="ir-icon ir-icon--chevron-right"></i>
+                                        </button>
+                                        <i class="ir-icon ir-icon--rule-type-table"></i>
+                                        <span class="rule-name__text">2_테이블룰12</span>
+                                    </span>
+                                </td>
+                                <td>#S00000392</td>
+                                <td class="rule-name__text" title=""></td>
+                                <td class="td-approval rule-name__text">-</td>
+                                <td class="td-apply">이관됨</td>
+                                <td><i class="ir-icon ir-icon--return-single"></i></td>
+                                <td><i class="ir-icon ir-icon--branch-node"></i></td>
+                                <td class="text--ellipsis" >ID:test_rina,Name:test_rina,IP:0:0:0:0:0:0:0:1</td>
+                                <td class="text--ellipsis" title="2022-10-12 10:39:52">2022-10-12 10:39:52</td>
+                            </tr>
+                            <tr style="cursor:pointer;" class="tr_li_rule_list">
+                                <td>
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <input type="checkbox" name="rule_check" class="checkbox__input rule_check" >
+                                        </label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="favorite">
+                                        <label class="favorite__wrapper">
+                                            <input id="favorite_#S00000392" data-delete="A" type="checkbox" class="favorite__input a-favorite">
+                                            <div class="favorite__state">
+                                                <i class="favorite__inactive ir-icon ir-icon--star-outline"></i>
+                                                <i class="favorite__active ir-icon ir-icon--star-fill"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                </td>
+                                <td class="text--start" title="2_테이블룰12">
+                                    <span class="rule-name rule-name-title">
+                                        <button type="button" class="icon-button icon-button--sm" title="버전 조회">
+                                            <i class="ir-icon ir-icon--chevron-right"></i>
+                                        </button>
+                                        <i class="ir-icon ir-icon--rule-type-table"></i>
+                                        <span class="rule-name__text">2_테이블룰12</span>
+                                    </span>
+                                </td>
+                                <td>#S00000392</td>
+                                <td class="rule-name__text" title=""></td>
+                                <td class="td-approval rule-name__text">-</td>
+                                <td class="td-apply">이관됨</td>
+                                <td><i class="ir-icon ir-icon--return-single"></i></td>
+                                <td><i class="ir-icon ir-icon--branch-node"></i></td>
+                                <td class="text--ellipsis" >ID:test_rina,Name:test_rina,IP:0:0:0:0:0:0:0:1</td>
+                                <td class="text--ellipsis" title="2022-10-12 10:39:52">2022-10-12 10:39:52</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-list" id="div_card_rulelist" style="display: none;">                    
+                    <ul class="card-list__wrapper" id="ul_rulelist">
+                        <li class="card tr_li_rule_list" 
+                            style="max-width:330px;height: fit-content" 
+                            title="룰 코드 : #S00000392">
+                            <div class="card__head">
+                                <strong class="card__head-title text--ellipsis" title="2_테이블룰12">
+                                    <span class="rule-name rule-name-title">
+                                        <i class="ir-icon ir-icon--rule-type-table"></i>
+                                        <span class="rule-name__text">2_테이블룰12</span>
+                                    </span>
+                                </strong>
+                                <div class="card__head-actions">
+                                    <div class="favorite">
+                                        <label class="favorite__wrapper">
+                                            <input type="checkbox" class="favorite__input">
+                                            <div class="favorite__state">
+                                                <i class="favorite__inactive ir-icon ir-icon--star-outline"></i>
+                                                <i class="favorite__active ir-icon ir-icon--star-fill"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label class="checkbox__wrapper">
+                                            <input type="checkbox" class="checkbox__input">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>     
+                            <div class="card__body">
+                                <span class="card__text">TEXT</span>
+                            </div>                           
+                            <div class="card__foot">
+                                <div class="card__foot-left">
+                                    <i class="ir-icon ir-icon--return-single"></i>
+                                    <i class="ir-icon ir-icon--branch-node"></i>
+                                </div>
+                                <div class="card__foot-right">
+                                    2022-11-29
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div id="div_empty_rulelist" class="empty">
+                    <strong class="empty__title" id="st_empty_title">즐겨찾기로 등록된 룰이 존재하지 않습니다.</strong>
+                    <p class="empty__description" style="display:none;">룰에 즐겨찾기 버튼을 클릭하여 즐겨찾기 목록에 룰을 노출할 수 있습니다.</p>
+                </div>
+            </div>
+        </main>
+        <div id="tooltip" class="menu">
+            <ul class="menu__list grid--col-2">
+                <li class="menu__item" id="li_rule_open_tool">
+                    <button type="button" class="menu__button" id="btn_rule_open_tool">
+                        <i class="menu__icon ir-icon ir-icon--rule-open"></i>
+                        <span id="sp_tooltip_rule_open">룰 열기</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_biz_path_tool" style="display: none;">
+                    <button type="button" class="menu__button" id="btn_biz_path_tool">
+                        <i class="menu__icon ir-icon ir-icon--tree-dir"></i>
+                        <span id="sp_tooltip_biz_path">폴더 경로</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_btn_rule_info_tool">
+                    <button type="button" class="menu__button" id="btn_rule_info_tool">
+                        <i class="menu__icon ir-icon ir-icon--information-circle-fill"></i>
+                        <span id="sp_tooltip_rule_info">룰 정보</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_rule_info_edit_tool">
+                    <button type="button" class="menu__button" id="btn_rule_info_edit_tool">
+                        <i class="menu__icon ir-icon ir-icon--edit"></i>
+                        <span id="sp_tooltip_rule_edit">룰 정보 변경</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_rule_delete_tool">
+                    <button type="button" class="menu__button" id="btn_rule_delete_tool">
+                        <i class="menu__icon ir-icon ir-icon--delete"></i>
+                        <span id="sp_tooltip_rule_delete">룰 삭제</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_rule_test_tool">
+                    <button type="button" class="menu__button" id="btn_rule_test_tool">
+                        <i class="menu__icon ir-icon ir-icon--rule-test"></i>
+                        <span id="sp_tooltip_rule_test">룰 테스트</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_rule_relation">
+                    <button type="button" class="menu__button" id="btn_rule_relation">
+                        <i class="menu__icon ir-icon ir-icon--relation-rule"></i>
+                        <span id="sp_tooltip_rule_relation">룰 관계도</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_rule_approval_tool">
+                    <button type="button" class="menu__button" id="btn_rule_approval_tool">
+                        <i class="menu__icon ir-icon ir-icon--apply-circle-fill"></i>
+                        <span id="sp_tooltip_rule_approval">승인</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_rule_approval_cncl_tool">
+                    <button type="button" class="menu__button" id="btn_rule_approval_cncl_tool">
+                        <i class="menu__icon ir-icon ir-icon--cancel-circle-fill"></i>
+                        <span id="sp_tooltip_rule_approval_cncl">승인 취소</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_rule_apply_tool">
+                    <button type="button" class="menu__button" id="btn_rule_apply_tool">
+                        <i class="menu__icon ir-icon ir-icon--rule-apply"></i>
+                        <span id="sp_tooltip_rule_apply">이관</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_copy_rule_tool">
+                    <button type="button" class="menu__button" id="btn_copy_rule_tool">
+                        <i class="menu__icon ir-icon ir-icon--copy"></i>
+                        <span id="sp_tooltip_copy_rule">룰 복사</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_cut_rule_tool">
+                    <button type="button" class="menu__button" id="btn_cut_rule_tool">
+                        <i class="menu__icon ir-icon ir-icon--cut"></i>
+                        <span id="sp_tooltip_cut_rule">룰 잘라내기</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_copy_name_tool">
+                    <button type="button" class="menu__button" id="btn_copy_name_tool">
+                        <i class="menu__icon ir-icon ir-icon--copy"></i>
+                        <span id="sp_tooltip_copy_name">{룰 이름} 복사</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_spectrum">
+                    <button type="button" class="menu__button" id="btn_spectrum">
+                        <i class="menu__icon ir-icon ir-icon--spectrum-scenario-test"></i>
+                        <span id="sp_tooltip_spectrum">스펙트럼 실행</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_spectrum_result">
+                    <button type="button" class="menu__button" id="btn_spectrum_result">
+                        <i class="menu__icon ir-icon ir-icon--spectrum-result-of-execution"></i>
+                        <span id="sp_tooltip_spectrum_result">스펙트럼 결과</span>
+                    </button>
+                </li>
+                <li class="menu__item" id="li_change_parent_rule">
+                    <button type="button" class="menu__button" id="btn_change_parent_rule">
+                        <i class="menu__icon ir-icon ir-icon--doc-edit"></i>
+                        <span id="sp_change_parent_rule">상위룰 일괄 변경</span>
+                    </button>
+                </li>                
+            </ul>
+        </div>
+    </div>    
+    <script defer src="/dist/jquery-3.6.1.min.js"></script>
+    <script defer type="module" src="./app.js"></script>
+</body>
+</html>

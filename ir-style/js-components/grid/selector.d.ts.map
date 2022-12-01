@@ -1,0 +1,1 @@
+{"version":3,"file":"selector.d.ts","sourceRoot":"","sources":["../../../src/js-components/grid/selector.ts"],"names":[],"mappings":"AAGA,OAAO,EAAE,MAAM,EAAE,MAAM,QAAQ,CAAC;AAEhC,OAAO,EAAE,WAAW,EAAE,MAAM,SAAS,CAAC;AAItC,MAAM,CAAC,OAAO,MAAM,YAAY,GAAG,UAAU,CAAC,OAAO,kBAAkB,CAAC,CAAA;AAExE,wBAAgB,kBAAkB,CAAE,IAAI,EAAE,MAAM;yBA4ElB,WAAW;0BAEV,WAAW;yBAWZ,WAAW;EA8BxC"}

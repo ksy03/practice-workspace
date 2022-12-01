@@ -1,0 +1,34 @@
+export default class StyleData {
+    type: any;
+    render: any;
+    text: string;
+    editable: boolean;
+    foreColor: string;
+    fontSize: number;
+    fontFamily: string;
+    textDecoration: string;
+    visibleOverText: boolean;
+    opacity: number;
+    cursor: string;
+    borderColor: string;
+    borderWidth: number;
+    borderDash: number;
+    isSelected: boolean;
+    isMonitoring: boolean;
+    isHovered: boolean;
+    tooltipText: string;
+    tooltipFontSize: number;
+    tooltipForeColor: string;
+    tooltipFontFamily: string;
+    tooltipFill: string;
+    tooltipMaxWidth: number;
+    tooltipBorderColor: string;
+    tooltipBorderWidth: number;
+    tooltipBorderDash: number;
+    tooltipPadding: number;
+    tooltipTextDecoration: string;
+    tooltipVisible: boolean;
+    'borderWidth.selected': number;
+    'borderColor.selected': string;
+}
+//# sourceMappingURL=styledata.d.ts.map

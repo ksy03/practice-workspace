@@ -1,0 +1,1 @@
+{"version":3,"file":"cell-drop.d.ts","sourceRoot":"","sources":["../../../../src/js-components/grid/plugins/cell-drop.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AAEtC,OAAO,WAAW,qBAAqB;IACnC,eAAe,CAAC,EAAE,OAAO,CAAC;CAC7B;AAoGD,wBAAgB,cAAc,CAAE,IAAI,wBAAiB,UAElC,MAAM,SAAS,gBAAgB,UAIjD"}

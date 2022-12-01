@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PF 설정화면</title>
+    <link rel="stylesheet" href="/ir-style/css/ir-css-ui.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="app flex flex--column" >
+        <header id="header" class="flex py--xl px--xxl background--sapphire-pattern" style="height: 155px;">            
+            <div class="mr--auto">
+                <div id="server-parts" class="text-switch">
+                    <button class="text-switch__button is-active">dev</button>
+                    <button class="text-switch__button">test</button>
+                    <button class="text-switch__button">prod</button>
+                </div>
+            </div>            
+            <h1 class="innoproduct-inverse-logo innoproduct-inverse-logo--sm">
+                <span class="a11y-hidden">InnoProduct</span>
+            </h1>
+            <div id="header_icon" class="ml--auto flex gap-x--xl"></div>
+        </header>
+        <main id="main" class="flex flex--auto background--light pb--xxl min-height--none overflow--auto">            
+            <div class="flex flex--column container container--xxl min-height--none" style="margin-top: -90px;">
+                <nav class="clothes-line-nav mb--xxl">
+                    <ul id="clothes_line_nav_list" class="clothes-line-nav__list">                        
+                    </ul>   
+                </nav>                 
+                <div class="row flex--auto flex--nowrap gap-x--xxl mt--xxl height--block min-height--none overflow--auto">
+                    <div class="flex flex--column col col--4">
+                        <div class="tabs tabs--basic flex flex--auto ">
+                            <div id="tabs_nav" class="tabs--nav row gap-x--xl mb--lg">
+                                <button type="button" class="heading--1 line-height--base tabs__nav-button is-active">RECENTS</button>
+                                <button type="button" class="heading--1 line-height--base tabs__nav-button opacity--5">FAVORITES</button>
+                            </div>
+                            <div id="tabs_content" class="tabs__content flex--auto">
+                                <div class="tabs__panel flex--auto background--white border-radius--xl p--xxl flex is-active">
+                                    <div class="flex--auto align-self--center">
+                                        <div class="text--center">최근에 사용한 메뉴가 없습니다.</div>
+                                    </div>
+                                </div>
+                                <div class="tabs__panel flex--auto background--white border-radius--xl p--xxl flex--column">
+                                    <a href="#" class="flex align-items--center py--lg px--xl border-radius--lg border border--light gap-x--lg">
+                                        <i class="ir-icon ir-icon--star-fill ir-icon--warning"></i>
+                                        <span class="text--h3 text--medium">상품/보험 항목 일괄 복사</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tabs tabs--basic flex flex--column flex--1 min-height--none overflow--auto">
+                        <button type="button" id="group" class="heading--1 line-height--base tabs__nav-button is-active mb--lg" style="align-self: flex-start;">유형관리</button>                        
+                        <div class="flex flex--auto background--white border-radius--xl p--xxl gap-x--lg">
+                            <div class="flex flex--column flex--auto overflow-y--auto col min-height--none">
+                                <div class="height--3xl"></div>
+                                <div class="height--3xl"></div>
+                                <div class="height--3xl"></div>
+                            </div>                                              
+                            <div class="row flex--nowrap flex col flex--auto min-width--none p--xxl border-radius--lg border border--light gap-y--xxl"><div class="flex--auto align-self--center"><div class="text--center">최근에 작업한 내역이 없습니다.</div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>        
+        <footer class="flex py--xs px--xxl">
+            <span class="mr--auto text--tertiary text--h5">[dev] 이규철</span>
+            <span class="text--tertiary text--h5">Copyright 2022. INNORULES Corporation. All rights reserved.</span>
+            <span class="ml--auto text--tertiary text--h5">InnoProduct Web 5.3</span>
+        </footer>
+    </div>
+    <script defer src="/dist/jquery-3.6.1.min.js"></script>
+    <script defer type="module" src="./app.js"></script>
+</body>
+</html>

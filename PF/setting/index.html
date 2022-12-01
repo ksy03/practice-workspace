@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PF 설정화면</title>
+    <link rel="stylesheet" href="/ir-style/css/ir-css-ui.css">
+</head>
+<body>
+    <div class="flex flex--column height--block width--block">
+        <div class="flex background--sapphire-pattern align-items--center justify-content--center height--lg">
+            <h1 class="innoproduct-inverse-logo"><span class="a11y-hidden">InnoProduct</span></h1>
+        </div>
+        <div class="flex flex--column align-items--center justify-content--center flex--1">            
+            <div>
+                <div class="flex mb--md">
+                    <div class=" flex flex--1 justify-content--center text--h3 text--bold">접속 빌더 설정</div>
+                    <div class="flex ml--auto">
+                        <button id="add_button" type="button" class="icon-button"><i class="ir-icon ir-icon--add-circle-fill"></i></button>
+                        <button id="delete_button" type="button" class="icon-button"><i class="ir-icon ir-icon--delete"></i></button>
+                    </div>
+                </div>             
+                <div id="ir_grid" style="height:311px;width:958px"></div>
+                <div class="flex mt--sm">
+                    <button type="button" class="button button--outline">전체서버 접속테스트</button>     
+                    <div class="ml--auto button-group">
+                        <button type="button" class="button button--outline">저장</button>     
+                        <button type="button" class="button button--outline">로그인화면으로</button>     
+                    </div>               
+                </div>
+            </div>
+        </div>
+    </div>
+    <script defer src="/dist/jquery-3.6.1.min.js"></script>
+    <script defer type="module" src="./app.js"></script>
+</body>
+</html>

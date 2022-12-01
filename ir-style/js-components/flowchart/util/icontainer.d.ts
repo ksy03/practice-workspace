@@ -1,0 +1,52 @@
+export default class ContainerInterface {
+    constructor({ observerCallback, getObjectOrNull, setEditMode, removeObject, renderCallback, addRenderObj, adjDragCallback, editTextCallback, selectCallback, releaseCallback, getReadOnly, getLogger, editTextModeCallback, initDrag, terminateDrag, getTooltipHidden, getSelectNodeOnHover, getSvg, releaseAllObjects, changeObjRender, isAppending, getUUID, }: {
+        observerCallback: (arg: ObserverArg) => void;
+        getObjectOrNull: (key: string | number) => RenderObject | null;
+        setEditMode: (flag: boolean) => void;
+        removeObject: (obj: string | number | RenderObject) => void;
+        renderCallback: (obj: RenderObject) => void;
+        addRenderObj: (data: {}) => RenderObject;
+        adjDragCallback: (objData: {}, oldPoints: [], newPoints: []) => void;
+        editTextCallback: (objData: {}, oldText: string, newText: string) => void;
+        getReadOnly: () => boolean;
+        getLogger: () => Logger;
+        editTextModeCallback: (objData: {}) => void;
+        initDrag: (dragEvent: string) => void;
+        terminateDrag: (dragEvent: string) => void;
+        getTooltipHidden: () => boolean;
+        getSelectNodeOnHover: () => boolean;
+        getSvg: () => import("d3-selection").Selection<any, any, any, any>;
+        releaseAllObjects: () => void;
+        changeObjRender: (obj: RenderObject, render: string) => void;
+        selectCallback: (obj: RenderObject, userInteraction: boolean, typeClick: string) => void;
+        releaseCallback: (obj: RenderObject, userInteraction: boolean) => void;
+        isAppending: () => boolean;
+        getUUID: () => string;
+    });
+    observerCallback: (arg: ObserverArg) => void;
+    getObjectOrNull: (key: string | number) => RenderObject | null;
+    setEditMode: (flag: boolean) => void;
+    removeObject: (obj: string | number | RenderObject) => void;
+    renderCallback: (obj: RenderObject) => void;
+    addRenderObj: (data: {}) => RenderObject;
+    adjDragCallback: (objData: {}, oldPoints: [], newPoints: []) => void;
+    editTextCallback: (objData: {}, oldText: string, newText: string) => void;
+    selectCallback: (obj: RenderObject, userInteraction: boolean, typeClick: string) => void;
+    releaseCallback: (obj: RenderObject, userInteraction: boolean) => void;
+    getReadOnly: () => boolean;
+    getLogger: () => Logger;
+    editTextModeCallback: (objData: {}) => void;
+    initDrag: (dragEvent: string) => void;
+    terminateDrag: (dragEvent: string) => void;
+    getTooltipHidden: () => boolean;
+    getSelectNodeOnHover: () => boolean;
+    getSvg: () => import("d3-selection").Selection<any, any, any, any>;
+    releaseAllObjects: () => void;
+    changeObjRender: (obj: RenderObject, render: string) => void;
+    isAppending: () => boolean;
+    getUUID: () => string;
+}
+import { ObserverArg } from "./observe";
+import RenderObject from "../obj/base";
+import { Logger } from "../../../utils/logger";
+//# sourceMappingURL=icontainer.d.ts.map

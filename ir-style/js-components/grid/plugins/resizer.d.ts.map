@@ -1,0 +1,1 @@
+{"version":3,"file":"resizer.d.ts","sourceRoot":"","sources":["../../../../src/js-components/grid/plugins/resizer.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,MAAM,EAAE,MAAM,SAAS,CAAC;AA2BtC,MAAM,WAAW,oBAAoB;IACjC,iBAAiB,EAAE,OAAO,CAAC;IAC3B,iBAAiB,EAAE,OAAO,CAAC;CAC9B;AAqQD,wBAAgB,aAAa,CAAE,OAAO,EAAE,oBAAoB,UAEzC,MAAM,SAAS,gBAAgB,WAAW,WAAW,YAIvE"}

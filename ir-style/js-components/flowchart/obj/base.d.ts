@@ -1,0 +1,56 @@
+export default class RenderObject {
+    constructor(data: Object, renderer: BaseRenderer, icontainer: ContainerInterface);
+    data: Object;
+    renderer: BaseRenderer;
+    icontainer: ContainerInterface;
+    temp: {
+        clickedSeq: number;
+    };
+    get onEditing(): boolean;
+    set clickedSeq(arg: number);
+    get clickedSeq(): number;
+    get tooltipText(): any;
+    get g(): import("d3-selection").Selection<SVGGElement, any, any, any>;
+    get isSelected(): any;
+    get type(): "group" | "node" | "connection";
+    get renderType(): any;
+    get tooltipVisible(): any;
+    get canShowTooltip(): any;
+    set id(arg: any);
+    get id(): any;
+    get startX(): void;
+    get startY(): void;
+    get isTempObj(): any;
+    set zIndex(arg: number | null);
+    get zIndex(): number | null;
+    get centerX(): number;
+    get centerY(): number;
+    set x(arg: void);
+    get x(): void;
+    set y(arg: void);
+    get y(): void;
+    get endX(): void;
+    get endY(): void;
+    set width(arg: void);
+    get width(): void;
+    set height(arg: void);
+    get height(): void;
+    set textDecoration(arg: any);
+    get textDecoration(): any;
+    set isHovered(arg: any);
+    get isHovered(): any;
+    observeProperties(): void;
+    changeRender(render: any, renderer: any): void;
+    create(): void;
+    destroy(): void;
+    render(): void;
+    moveTo(x: any, y: any): void;
+    select(userInteraction?: boolean, typeClick?: string): void;
+    release(userInteraction?: boolean): void;
+    editLabel(): void;
+    getDataOrNull(key: any): any;
+    editProp(func: () => void): void;
+}
+import BaseRenderer from "../render/base";
+import ContainerInterface from "../util/icontainer";
+//# sourceMappingURL=base.d.ts.map
